@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: {{ .Values.kind | default "Service" }}  # Default to "Service" if kind is not provided
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    app.kubernetes.io/name: {{ .Values.selector.appName }}
+  ports:
+    - protocol: {{ .Values.ports.protocol }}
+      port: {{ .Values.ports.port }}
+      targetPort: {{ .Values.ports.targetPort }}

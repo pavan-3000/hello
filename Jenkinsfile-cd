@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    
+    
+
+    stages {
+        stage('log into eks') {
+            steps {
+                withCredentials([string(credentialsId: 'access_key', variable: 'access_key'), string(credentialsId: 'secret_key', variable: 'secret_key')]) {
+                  sh 'aws eks update-kubeconfig --region ap-south-1 --name hello-cluster'  
+                }
+            }
+        }
+
+
+        
+    }
+}

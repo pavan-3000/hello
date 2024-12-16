@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: 339713101508.dkr.ecr.ap-south-1.amazonaws.com/hello
+  tag: "latest"
+  
+
+service:
+  port: 3000
+
+labels:
+  app: hello
+
+name: hello
+
+selector:
+  appName: hello
+
+ports:
+  protocol: TCP
+  port: 80
+  targetPort: 3000
